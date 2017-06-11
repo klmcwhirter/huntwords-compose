@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  puzle-service:
+    image: klmcwhirter/puzzle-service:${ARCHTAG}
+    ports:
+      - "5000:5000"
+    networks:
+      backend:
+        aliases:
+          - webapi
+
+  huntwords:
+    image: klmcwhirter/huntwords:${ARCHTAG}
+    ports:
+      - "8080:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
