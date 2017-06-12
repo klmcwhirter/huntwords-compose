@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-  puzle-service:
+  puzzle-service:
     image: klmcwhirter/puzzle-service:${ARCHTAG}
     ports:
       - "5000:5000"
@@ -13,7 +13,7 @@ services:
   huntwords:
     image: klmcwhirter/huntwords:${ARCHTAG}
     ports:
-      - "8080:80"
+      - "${HWPORT}:80"
     networks:
       - backend
 
