@@ -15,11 +15,14 @@ if [ "${arch}" = "arm" ]
 then
   export ARCHTAG=arm32v7
 fi
+echo "$0: ARCHTAG=${ARCHTAG}"
 
 if [ -z "${HWPORT}" ]
 then
   export HWPORT=8080
 fi
+
+echo "$0: HWPORT=${HWPORT}"
 
 #*------------------------------------------------------------------------------*
 #* M A I N  P R O G R A M
