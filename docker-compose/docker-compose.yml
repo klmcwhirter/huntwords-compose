@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+  puzzle-service:
+    image: klmcwhirter/puzzle-service-${ARCHTAG}:${VERSION}
+    ports:
+      - "32000:32000"
+    networks:
+      backend:
+        aliases:
+          - puzzle-service
+    volumes:
+      - /Users/klmcw/src/github.com/klmcwhirter/puzzle-service/data:/app/data
+
+  huntwords:
+    image: klmcwhirter/huntwords-${ARCHTAG}:${VERSION}
+    ports:
+      - "${HWPORT}:80"
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
